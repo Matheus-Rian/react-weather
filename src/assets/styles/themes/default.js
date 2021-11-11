@@ -6,7 +6,8 @@ export default {
     snowy: '#CFCFCF',
   },
   colors: {
-    white: '#fff',
+    white: '#FFF',
     black: '#000',
+    gray: '#B7B7B7',
   },
 };
