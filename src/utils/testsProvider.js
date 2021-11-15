@@ -1,5 +1,4 @@
 import { ThemeProvider } from 'styled-components';
-import PropTypes from 'prop-types';
 import defaultTheme from '../assets/styles/themes/default';
 
 const Providers = ({ children }) => (
@@ -7,7 +6,3 @@ const Providers = ({ children }) => (
 );
 
 export default Providers;
-
-Providers.propTypes = {
-  children: PropTypes.node.isRequired,
-};
