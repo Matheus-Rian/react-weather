@@ -3,13 +3,18 @@ import arrow from '../../assets/images/arrow.svg';
 import WeatherDay from '../../components/WeatherDay';
 import WeatherMoreInformations from '../../components/WeatherMoreInformations';
 import useFetch from '../../hooks/useFetch';
+import Modal from '../../components/Modal';
 
 export default function WeatherCity({ history }) {
   const city = history.location.pathname.split('/');
-  const [loading, response] = useFetch(`&q=${city[city.length - 1]}&aqi=no`);
+  const [loading, response, error] = useFetch(`&q=${city[city.length - 1]}&aqi=no`);
 
   function handleBack() {
     history.goBack();
+  }
+
+  if (error) {
+    return <Modal title="Error 🔴" onBack={handleBack} />;
   }
 
   if (loading) { return <h1>Carregando...</h1>; }
