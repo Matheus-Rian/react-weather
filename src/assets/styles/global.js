@@ -22,7 +22,10 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.white};
     font-size: 1.6rem;
   }
+
   button {
     cursor: pointer;
+    background: none;
+    border: none;
   }
 `;
