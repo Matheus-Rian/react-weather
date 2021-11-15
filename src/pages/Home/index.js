@@ -1,7 +1,7 @@
 import { Container } from './styles';
 import { citys } from '../../utils/citys';
 import world from '../../assets/images/world.svg';
-import ButtonCity from '../../components/Button';
+import ButtonCity from '../../components/ButtonCity';
 
 export default function Home({ history }) {
   function handleCity(city) {
