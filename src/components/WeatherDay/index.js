@@ -1,15 +1,34 @@
-import rain from '../../assets/images/rain.svg';
 import { Container } from './styles';
-import { momentsDay } from '../../utils/momentsDay';
 
-export default function WeatherDay() {
+export default function WeatherDay({
+  dawn, morning, afternoon, night,
+}) {
+  const momentsDay = [{
+    moment: 'Dawn',
+    value: dawn,
+  }, {
+    moment: 'Morning',
+    value: morning,
+  }, {
+    moment: 'Afternoon',
+    value: afternoon,
+  }, {
+    moment: 'Night',
+    value: night,
+  }];
+
   return (
     <Container>
       {momentsDay.map((momentDay) => (
-        <div>
-          <p>{momentDay}</p>
-          <img src={rain} alt="rain" width={40} height={40} />
-          <p>-13ºC</p>
+        <div key={momentDay.moment}>
+          <p>{momentDay.moment}</p>
+          <img
+            src={momentDay.value?.condition.icon}
+            alt={momentDay.value?.condition.text}
+            width={40}
+            height={40}
+          />
+          <p>{`${momentDay.value?.temp_c}ºC`}</p>
         </div>
       ))}
     </Container>
