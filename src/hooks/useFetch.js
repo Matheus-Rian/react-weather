@@ -4,14 +4,20 @@ import WeatherService from '../services/WeatherService';
 export default function useFetch(url) {
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
-      const resp = await WeatherService.get(url);
-      setLoading(false);
-      setResponse(resp);
+      try {
+        const resp = await WeatherService.get(url);
+        setResponse(resp);
+      } catch (err) {
+        setError(new Error(err));
+      } finally {
+        setLoading(false);
+      }
     })();
   }, [url]);
 
-  return [loading, response];
+  return [loading, response, error];
 }
