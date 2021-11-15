@@ -24,10 +24,10 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 75%;
+    width: 60%;
 
     @media(max-width: 425px) {
-      width: 80%;
+      width: 90%;
 
       button {
         font-size: 2rem;
@@ -35,7 +35,19 @@ export const Container = styled.main`
     }
 
     @media(max-width: 355px) {
-      width: 95%;
+      width: 100%;
+    }
+
+    @media(max-width: 540px) {
+      width: 70%;
+    }
+
+    @media(max-width: 280px) {
+      width: 100%;
+
+      button {
+        font-size: 1.5rem;
+      }
     }
   }
 `;
