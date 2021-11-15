@@ -26,6 +26,10 @@ export const Container = styled.main`
     flex-wrap: wrap;
     width: 60%;
 
+    @media(max-width: 540px) {
+      width: 70%;
+    }
+
     @media(max-width: 425px) {
       width: 90%;
 
@@ -38,9 +42,6 @@ export const Container = styled.main`
       width: 100%;
     }
 
-    @media(max-width: 540px) {
-      width: 70%;
-    }
 
     @media(max-width: 280px) {
       width: 100%;
