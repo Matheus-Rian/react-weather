@@ -1,18 +1,36 @@
+import { Fragment } from 'react';
 import LineHorizontal from '../LineHorizontal';
 import { Container } from './styles';
-import { informations } from '../../utils/weatherMoreInformations';
 
-export default function WeatherMoreInformations() {
+export default function WeatherMoreInformations({
+  windSpeed, sunrise, sunset, humidity,
+}) {
+  const info = [{
+    name: 'wind speed',
+    value: `${windSpeed} m/s`,
+  }, {
+    name: 'sunrise',
+    value: sunrise,
+  },
+  {
+    name: 'sunset',
+    value: sunset,
+  },
+  {
+    name: 'humidity',
+    value: `${humidity}%`,
+  }];
+
   return (
     <Container>
-      {informations.map((information, i) => (
-        <>
+      {info.map((information, i) => (
+        <Fragment key={information.name}>
           <div>
-            <p>{information}</p>
-            <span>5.1 m/s</span>
+            <p>{information.name}</p>
+            <span>{information?.value}</span>
           </div>
-          {(informations.length - 1) !== i && <LineHorizontal />}
-        </>
+          {(info.length - 1) !== i && <LineHorizontal />}
+        </Fragment>
       ))}
     </Container>
   );
