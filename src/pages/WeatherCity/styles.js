@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-export const Ancora = styled.a`
-  display: flex;
-  justify-content: flex-start;
-  img {
-    position: relative;
-    left: 0;
-    transform: rotate(270deg);
+export const Back = styled.div`
+  width: 90%;
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  button {
+    img {
+      transform: rotate(270deg);
+    }
   }
 `;
-
 export const Container = styled.main`
   width: 100%;
   max-width: 500px;
@@ -29,6 +30,7 @@ export const Container = styled.main`
     h1, h2 {
       font-weight: 300;
       letter-spacing: 2px;
+      text-align: center;
     }
 
     h1 {
@@ -37,7 +39,8 @@ export const Container = styled.main`
     }
 
     h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
+      width: 80%;
     }
 
     .temp {
@@ -48,6 +51,7 @@ export const Container = styled.main`
       & > p:first-child {
         margin-top: 16px;
         font-size: 12rem;
+        margin-right: 8px;
       }
 
       .arrows {
