@@ -1,5 +1,4 @@
 import axios from 'axios';
-import UnexpectedError from '../../../errors/UnexpectedError';
 
 class HttpClient {
   constructor(baseURL) {
@@ -11,7 +10,7 @@ class HttpClient {
 
     switch (httpResponse.status) {
       case 200: return httpResponse;
-      default: throw new UnexpectedError();
+      default: throw new Error();
     }
   }
 }
