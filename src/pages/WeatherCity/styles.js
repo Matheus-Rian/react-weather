@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Back = styled.div`
   width: 90%;
@@ -12,9 +12,24 @@ export const Back = styled.div`
   }
 `;
 export const Container = styled.main`
+
+  ${({ tempC, theme }) => tempC <= 0 && css`
+      background-color: ${theme.backgroundColor.snowy};
+      color: #222;
+  `}
+
+  ${({ tempC, theme }) => tempC >= 28 && css`
+      background-color: ${theme.backgroundColor.sunny};
+      color: #eee;
+  `}
+
+  ${({ tempC, theme }) => tempC <= 28 && tempC > 0 && css`
+      background-color: ${theme.backgroundColor.rainy};
+      color: #eee;
+  `}
+
   width: 100%;
-  max-width: 500px;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +58,7 @@ export const Container = styled.main`
       width: 80%;
     }
 
-    .temp {
+    .container-temp {
       display: flex;
       align-items: center;
       justify-content: center;
